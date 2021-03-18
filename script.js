@@ -106,44 +106,52 @@ function Counter(articles) {
   return counter;
 }
 
+function CategoriesList(articles) {
+
+  // Récupérer les données pertinantes
+  let categories = new Set();
+
+  for(var a in articles) {
+    categories.add(articles[a].category);
+  }
+
+  // Génerer le tableau de LI
+  var itemList = [];
+
+  categories.forEach(function(elm) {
+    itemList.push(Tag.create("li", {}, [elm]));
+  });
+  
+  // Créer le composant HTML
+  var categoriesList = Tag.create("div", {"class": "Categories"}, [
+    Tag.create("p", {}, ["Liste des catégories"]),
+    Tag.create("ul", {}, itemList)
+  ]);
+
+  return categoriesList;
+}
+
 // ##########################
 // # Code de l'application
 // ##########################
 
-var articles = [
-  { 
-    title: "Mon titre", 
-    author: "Julien OPPLIGER", 
-    published: "17/03/2021", 
-    category: "javascript",
-    content: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
-  },
-  { 
-    title: "Autre chose", 
-    author: "Julien OPPLIGER", 
-    published: "18/03/2021", 
-    category: "poisson",
-    content: "lorem ipsum autre chose lorem ipsum lorem ipsum lorem ipsum"
-  },
-  { 
-    title: "Encore autre chose", 
-    author: "Julien OPPLIGER", 
-    published: "18/03/2021", 
-    category: "poisson",
-    content: "encore autre chose lorem ipsum lorem ipsum lorem ipsum"
-  },
-]
+fetch(new Request("http://188.165.104.163:8080/articles"))
+  .then(function(res) { return res.json() })
+  .then(function(articles) { 
+    Tag.append(CategoriesList(articles), Tag.ROOT);
 
-Tag.append(Counter(articles), Tag.ROOT);
+    Tag.append(Counter(articles), Tag.ROOT);
 
-for(var a in articles) {
-  Tag.append(
-    Article(
-      articles[a].title, 
-      articles[a].author, 
-      articles[a].published, 
-      articles[a].content, 
-    ), 
-    Tag.ROOT
-  );
-}
+    for(var a in articles) {
+      Tag.append(
+	Article(
+	  articles[a].title, 
+	  articles[a].author, 
+	  articles[a].published, 
+	  articles[a].content, 
+	), 
+	Tag.ROOT
+      );
+    }
+  })
+
