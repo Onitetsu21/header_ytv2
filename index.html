@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
+  <style>
+    html { font-family: 'Roboto', sans-serif; }
+
+    li { list-style-type: circle; margin-left: 20px; }
+
+    .Article { display: flex; flex-direction: column; width: 400px; }
+    .Article--Important .Article__Title { color: red; }
+    .Article__Title { text-transform: uppercase; font-weight: bold; font-size: 2em; }
+    .Article__Metadata { display: flex; justify-content: space-between; font-size: 0.9em; }
+    .Article__Content { text-align: justify; }
+  </style>
+</head>
+<body>
+  <div class="Categories">
+    <p>Liste des catégories</p>
+    <ul>
+      <li>javascript</li>
+      <li>poisson</li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
