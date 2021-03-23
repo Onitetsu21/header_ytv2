@@ -6,6 +6,7 @@ const htmlmin = require('gulp-htmlmin')
 const del = require('del')
 const terser = require('gulp-terser')
 const browsersync = require('browser-sync')
+const imagemin = require('gulp-imagemin')
 
 const io = {
   src: join('src'),
@@ -43,6 +44,21 @@ function js() {
     .pipe(dest(join(io.dest)))
 }
 
+function image() {
+  return src(join(io.src, 'images','*.jpg'))
+    .pipe(imagemin({
+      interlaced: true,
+      progressive: true,
+      optimizationLevel: 5,
+      svgoPlugins: [
+	  {
+	      removeViewBox: true
+	  }
+      ]
+    }))
+    .pipe(dest(join(io.dest, 'images')))
+}
+
 function serve(cb) {
   browsersync.init({
     server: {
@@ -63,7 +79,7 @@ function reload(cb) {
 
 const build = series(
   clean, 
-  parallel(css, html, js),
+  parallel(css, html, js, image),
 )
 
 watch([join(io.src,'**/*')], series(build, reload))
