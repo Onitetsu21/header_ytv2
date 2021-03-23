@@ -1,0 +1,1 @@
+function Counter(e){return Tag.create("div",{class:"Counter"},[Tag.create("span",{},["Nombre d'articles : "]),Tag.create("span",{},[e.length])])}

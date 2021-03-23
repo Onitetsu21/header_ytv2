@@ -1,0 +1,1 @@
+function NavList(a){var r=[];for(var e in a)r.push(Tag.create("li",{},[Tag.create("a",{href:a[e]},[e])]));return Tag.create("nav",{class:"NavBar"},[Tag.create("ul",{},r)])}

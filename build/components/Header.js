@@ -1,0 +1,1 @@
+function Header(e,a){return Tag.create("header",{class:"header"},[Tag.create("div",{class:"logo"},[e]),Tag.create("div",{class:"menu"},[a])])}
