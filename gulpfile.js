@@ -1,4 +1,5 @@
-const gulp = require('gulp')
+const { join } = require('path')
+const { src, dest, series, parallel, watch } = require('gulp')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
 const htmlmin = require('gulp-htmlmin')
@@ -6,20 +7,25 @@ const del = require('del')
 const terser = require('gulp-terser')
 const browsersync = require('browser-sync')
 
+const io = {
+  src: join('src'),
+  dest: join('build')
+}
+
 function clean() {
-  return del('./dist')
+  return del(join(io.dest))
 }
 
 function css() {
-  return gulp.src('src/style.css')
+  return src(join(io.src, 'style.css'))
     .pipe(postcss([
       cssnano()
     ]))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(dest(join(io.dest)))
 }
 
 function html() {
-  return gulp.src('src/index.html')
+  return src(join(io.src, 'index.html'))
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true,
@@ -28,19 +34,19 @@ function html() {
       removeRedundantAttributes: true,
       removeEmptyAttribute: true
     }))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(dest(join(io.dest)))
 }
 
 function js() {
-  return gulp.src('src/**/*.js')
+  return src(join(io.src, '**/*.js'))
     .pipe(terser())
-    .pipe(gulp.dest('./dist/'))
+    .pipe(dest(join(io.dest)))
 }
 
 function serve(cb) {
   browsersync.init({
     server: {
-      baseDir: './dist'
+      baseDir: join(io.dest)
     }
   })
 
@@ -53,14 +59,16 @@ function reload(cb) {
   cb()
 }
 
-const build = gulp.series(
+// --------------------------------------------
+
+const build = series(
   clean, 
-  gulp.parallel(css, html, js),
+  parallel(css, html, js),
 )
 
-gulp.watch(['src/**/*'], gulp.series(build, reload))
+watch([io.src+'**/*'], series(build, reload))
 
-exports.default = gulp.series(
+exports.default = series(
   build,
   serve
 )
