@@ -1,4 +1,3 @@
-const { join } = require('path')
 const { src, dest, series, parallel, watch } = require('gulp')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
@@ -13,24 +12,24 @@ const browserify = require('browserify')
 const babelify = require('babelify')
 
 const io = {
-  src: join('src'),
-  dest: join('dist')
+  src: './src',
+  dest: './dist'
 }
 
 function clean() {
-  return del(join(io.dest))
+  return del(io.dest)
 }
 
 function css() {
-  return src(join(io.src, 'style.css'))
+  return src(io.src + '/style.css')
     .pipe(postcss([
       cssnano()
     ]))
-    .pipe(dest(join(io.dest)))
+    .pipe(dest(io.dest))
 }
 
 function html() {
-  return src(join(io.src, 'index.html'))
+  return src(io.src + '/index.html')
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true,
@@ -39,13 +38,12 @@ function html() {
       removeRedundantAttributes: true,
       removeEmptyAttribute: true
     }))
-    .pipe(dest(join(io.dest)))
+    .pipe(dest(io.dest))
 }
 
 function js() {
-  
   return browserify({
-    entries: join(io.src, 'entry.js'),
+    entries: io.src + '/entry.js',
     debug: true
   })
     .transform(babelify.configure({
@@ -54,11 +52,11 @@ function js() {
     .bundle()
     .pipe(source('entry.js'))
     .pipe(buffer())
-    .pipe(dest(join(io.dest)))
+    .pipe(dest(io.dest))
 }
 
 function image() {
-  return src(join(io.src, 'images','*.jpg'))
+  return src(io.src + '/images/*.jpg')
     .pipe(imagemin({
       interlaced: true,
       progressive: true,
@@ -69,13 +67,13 @@ function image() {
 	  }
       ]
     }))
-    .pipe(dest(join(io.dest, 'images')))
+    .pipe(dest(io.dest + '/images'))
 }
 
 function serve(cb) {
   browsersync.init({
     server: {
-      baseDir: join(io.dest)
+      baseDir: io.dest
     }
   })
 
@@ -96,7 +94,7 @@ const build = series(
   parallel(html, js)
 )
 
-watch([join(io.src,'**/*')], series(build, reload))
+watch([io.src + '/**/*'], series(build, reload))
 
 exports.default = series(
   build,
