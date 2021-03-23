@@ -66,7 +66,7 @@ const build = series(
   parallel(css, html, js),
 )
 
-watch([io.src+'**/*'], series(build, reload))
+watch([join(io.src,'**/*')], series(build, reload))
 
 exports.default = series(
   build,
