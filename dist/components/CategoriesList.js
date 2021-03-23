@@ -1,1 +1,0 @@
-function CategoriesList(e){let a=new Set;for(var t in e)a.add(e[t].category);var r=[];return a.forEach((function(e){r.push(Tag.create("li",{},[e]))})),Tag.create("div",{class:"Categories"},[Tag.create("p",{},["Liste des catégories"]),Tag.create("ul",{},r)])}

@@ -1,1 +1,0 @@
-function SocialList(a){var r=[];for(var e in a)r.push(Tag.create("li",{},[Tag.create("a",{href:a[e]},[e])]));return Tag.create("nav",{class:"SocialBar"},[Tag.create("ul",{},r)])}

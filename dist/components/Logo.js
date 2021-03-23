@@ -1,1 +1,0 @@
-function Logo(r,t){return Tag.create("img",{src:r,alt:t},[])}

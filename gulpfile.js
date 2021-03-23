@@ -7,6 +7,9 @@ const del = require('del')
 const terser = require('gulp-terser')
 const browsersync = require('browser-sync')
 const imagemin = require('gulp-imagemin')
+const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer')
+const browserify = require('browserify')
 
 const io = {
   src: join('src'),
@@ -39,9 +42,19 @@ function html() {
 }
 
 function js() {
-  return src(join(io.src, '**/*.js'))
-    .pipe(terser())
+  
+  return browserify({
+    entries: join(io.src, 'entry.js'),
+    debug: true
+  })
+    .bundle()
+    .pipe(source('entry.js'))
+    .pipe(buffer())
     .pipe(dest(join(io.dest)))
+
+    //return src(join(io.src, '**/*.js'))
+    //.pipe(terser())
+    //.pipe(dest(join(io.dest)))
 }
 
 function image() {
@@ -79,7 +92,8 @@ function reload(cb) {
 
 const build = series(
   clean, 
-  parallel(css, html, js, image),
+  //  parallel(css, html, js, image),
+  parallel(html, js)
 )
 
 watch([join(io.src,'**/*')], series(build, reload))

@@ -1,3 +1,14 @@
+const Tag = require('./toolkit')
+const Article = require('./components/Article')
+const Header = require('./components/Header')
+const Footer = require('./components/Footer')
+const Formulaire = require('./components/Formulaire')
+const CategoriesList = require('./components/CategoriesList')
+const Counter = require('./components/Counter')
+const Logo = require('./components/Logo')
+const NavList = require('./components/NavList')
+const SocialList = require('./components/SocialList')
+
 // ##########################
 // # Code de l'application
 // ##########################

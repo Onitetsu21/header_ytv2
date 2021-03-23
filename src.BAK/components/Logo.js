@@ -6,3 +6,5 @@ function Logo(url, alt){
   )
   return logo
 }
+
+exports.default = Logo
