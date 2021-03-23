@@ -10,6 +10,7 @@ const imagemin = require('gulp-imagemin')
 const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
 const browserify = require('browserify')
+const babelify = require('babelify')
 
 const io = {
   src: join('src'),
@@ -47,14 +48,13 @@ function js() {
     entries: join(io.src, 'entry.js'),
     debug: true
   })
+    .transform(babelify.configure({
+      presets: ['@babel/preset-env']
+    }))
     .bundle()
     .pipe(source('entry.js'))
     .pipe(buffer())
     .pipe(dest(join(io.dest)))
-
-    //return src(join(io.src, '**/*.js'))
-    //.pipe(terser())
-    //.pipe(dest(join(io.dest)))
 }
 
 function image() {

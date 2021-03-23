@@ -1,3 +1,3 @@
-//const demo = require('./demo')
+const demo = require('./demo')
 
-console.log(demo)
+console.log( { ...demo.default, d: 1 } )

@@ -1,1 +1,1 @@
-exports.default = "Ceci est une démo"
+exports.default = { a: 1, b: 1, c: 1 }

@@ -10,6 +10,8 @@
   "license": "GPLv3",
   "description": "Rajouter une description",
   "devDependencies": {
+    "@babel/preset-env": "^7.13.12",
+    "babelify": "^10.0.0",
     "browser-sync": "^2.26.14",
     "browserify": "^17.0.0",
     "cssnano": "^4.1.10",
