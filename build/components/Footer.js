@@ -1,1 +1,0 @@
-function Footer(e,a,o){return Tag.create("footer",{class:"footer"},[Tag.create("div",{class:"logo"},[e]),Tag.create("div",{class:"menu"},[a]),Tag.create("div",{class:"socialNetwork"},[o])])}

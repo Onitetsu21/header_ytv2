@@ -9,7 +9,7 @@ const browsersync = require('browser-sync')
 
 const io = {
   src: join('src'),
-  dest: join('build')
+  dest: join('dist')
 }
 
 function clean() {
