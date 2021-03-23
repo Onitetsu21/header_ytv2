@@ -1,0 +1,1 @@
+function Article(e,a,t,c){return Tag.create("div",{class:"Article"},[Tag.create("h1",{class:"Article__Title"},[e]),Tag.create("div",{class:"Article__Metadata"},[Tag.create("span",{class:"Article__Author"},[a]),Tag.create("span",{class:"Article__Published"},[t])]),Tag.create("p",{class:"Article__Content"},[c])])}
