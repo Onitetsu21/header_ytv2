@@ -1,3 +1,5 @@
+const Tag = require('../toolkit');
+
 function Formulaire(action, method) {
 
     let formulaire = Tag.create(
@@ -48,3 +50,5 @@ function Formulaire(action, method) {
     action.responseType = 'json'
     return formulaire;
 }
+
+module.exports = Formulaire;

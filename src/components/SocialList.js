@@ -1,3 +1,5 @@
+const Tag = require('../toolkit');
+
 function SocialList(dataSocial) {
   // Génerer le tableau de LI
   var socialList = [];
@@ -13,3 +15,5 @@ function SocialList(dataSocial) {
   ]);
   return listSocial;
 }
+
+module.exports = SocialList;

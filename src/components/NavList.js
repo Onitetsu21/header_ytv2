@@ -1,3 +1,5 @@
+const Tag = require('../toolkit');
+
 function NavList(dataNav) {
   // Génerer le tableau de LI
   var menuList = [];
@@ -14,3 +16,4 @@ function NavList(dataNav) {
   return navList;
 }
 
+module.exports = NavList;

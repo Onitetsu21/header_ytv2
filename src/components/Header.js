@@ -1,3 +1,5 @@
+const Tag = require('../toolkit');
+
 function Header(logo, menu){
   let header = Tag.create(
     "header",
@@ -14,3 +16,5 @@ function Header(logo, menu){
     ])
   return header
 }
+
+module.exports = Header;

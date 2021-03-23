@@ -1,3 +1,5 @@
+const Tag = require('../toolkit');
+
 //Component footer
 function Footer(logo, menu, socialNetwork){
   let footer = Tag.create(
@@ -18,3 +20,5 @@ function Footer(logo, menu, socialNetwork){
       )])
   return footer
 }
+
+module.exports = Footer;

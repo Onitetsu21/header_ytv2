@@ -43,14 +43,14 @@ function html() {
 
 function js() {
   return browserify({
-    entries: io.src + '/entry.js',
+    entries: io.src + '/script.js',
     debug: true
   })
     .transform(babelify.configure({
       presets: ['@babel/preset-env']
     }))
     .bundle()
-    .pipe(source('entry.js'))
+    .pipe(source('script.js'))
     .pipe(buffer())
     .pipe(dest(io.dest))
 }
@@ -90,8 +90,7 @@ function reload(cb) {
 
 const build = series(
   clean, 
-  //  parallel(css, html, js, image),
-  parallel(html, js)
+  parallel(css, html, js, image),
 )
 
 watch([io.src + '/**/*'], series(build, reload))

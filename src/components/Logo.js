@@ -1,3 +1,5 @@
+const Tag = require('../toolkit');
+
 function Logo(url, alt){
   let logo = Tag.create(
     "img",
@@ -7,4 +9,4 @@ function Logo(url, alt){
   return logo
 }
 
-exports.default = Logo
+module.exports = Logo;

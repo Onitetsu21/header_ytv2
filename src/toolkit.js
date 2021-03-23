@@ -1,4 +1,3 @@
-
 // EcmaScript 
 // Dépendent du contexte d'exécution
 // Tous les navigateurs n'ont pas la même version de JS
@@ -80,3 +79,5 @@ Tag.get = function(selector) {
 
   return list;
 }
+
+module.exports = Tag;

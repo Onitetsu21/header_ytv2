@@ -1,3 +1,5 @@
+const Tag = require('../toolkit');
+
 function Article(title, author, published, content) {
 
   var article = Tag.create(
@@ -15,3 +17,5 @@ function Article(title, author, published, content) {
 
   return article;
 }
+
+module.exports = Article;

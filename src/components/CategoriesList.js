@@ -1,3 +1,5 @@
+const Tag = require('../toolkit');
+
 function CategoriesList(articles) {
 
   // Récupérer les données pertinantes
@@ -22,3 +24,5 @@ function CategoriesList(articles) {
 
   return categoriesList;
 }
+
+module.exports = CategoriesList;
