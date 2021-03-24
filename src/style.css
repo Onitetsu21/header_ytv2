@@ -1,1 +1,71 @@
-body { background: red; }
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.grid {
+    background: whitesmoke;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tagsList {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 10px;
+    border-bottom: lightgrey 1px solid;
+    border-top: lightgrey 1px solid;
+}
+
+.tagsList > li {
+    background: whitesmoke;
+    padding: 10px;
+    border: lightgrey 1px solid;
+    border-radius: 50px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.tagsList > li:active, li:hover {
+    background: dimgray;
+    color: whitesmoke;
+}
+
+.thumbnail {
+    display: flex;
+    flex-direction: column;
+    max-width: 310px;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.metaData {
+    display: flex;
+    padding-top: 10px;
+}
+
+.logo > img {
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+.infosVideos > h3, p {
+    margin: 5px;
+}
+
+.infosVideos > h3 {
+    font-weight: 700;
+}
+
+.infosVideos p {
+    font-size: small;
+    padding: inherit;
+    margin-bottom: 0;
+}
+
+.vuesAndPublication {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}

@@ -5,18 +5,18 @@ import Aside from './components/Aside'
 import Main from './components/Main'
 
 
+
 function App() {
   return (
     <Fragment>
       <Header>
       </Header>
-	
       <div>
-	<Aside>
-	</Aside>
+        <Aside>
+        </Aside>
 
-	<Main>
-	</Main>
+        <Main>
+        </Main>
       </div>
 
     </Fragment>

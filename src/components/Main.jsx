@@ -1,10 +1,14 @@
 import React from 'react'
+import TagsList from './TagsList'
+import Grid from './Grid'
 
-function Main({children }) {
+
+function Main() {
 
   return (
     <div>
-      { children }
+      <TagsList/>
+      <Grid/>
     </div>
   )
 }
