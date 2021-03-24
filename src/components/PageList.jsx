@@ -1,15 +1,14 @@
 import React from 'react'
 
-function PageList(props) {
-  console.log(props)
+function PageList({menu}) {
   return (
     <div>
       <ul>
-        <li>{props.menu[0].label}</li>
-        <li>{props.menu[1].label}</li>
-        <li>{props.menu[2].label}</li>
-        <li>{props.menu[3].label}</li>
-        <li>{props.menu[4].label}</li>
+        <li>{menu[0].label}</li>
+        <li>{menu[1].label}</li>
+        <li>{menu[2].label}</li>
+        <li>{menu[3].label}</li>
+        <li>{menu[4].label}</li>
       </ul>
     </div>
   )

@@ -6,7 +6,6 @@ function Header({children }) {
 
   return (
     <header>
-      <p>test</p>
       { children }
     </header>
   )

@@ -13,14 +13,7 @@ function TagsList(tagsArray) {
 }
 
 function Tag(){
-  return tagsArray.map((tags)=> <li>{tags}</li>)
+  return tagsArray.map((tags)=> <li>{tags}</li>) //ajouter key sinon react pas content
 }
-
-// const numbers = [1, 2, 3, 4, 5];
-// const listItems = numbers.map((numbers) =>
-//   <li>{numbers}</li>
-// );
-
-
 
 export default TagsList
