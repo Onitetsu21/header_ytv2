@@ -1,14 +1,13 @@
 import React from 'react'
 
-
-function Header(props) {
-
-  console.log(props)
+function Header({ title, subtitle, children }) {
 
   return (
     <header>
-      <h1>{ props.title }</h1>
-      <h2>{ props.subtitle }</h2>
+      <h1>{ title }</h1>
+      <h2>{ subtitle }</h2>
+
+      { children }
     </header>
   )
 }
