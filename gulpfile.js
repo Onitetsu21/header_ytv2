@@ -46,14 +46,15 @@ function html() {
 
 function js() {
   return browserify({
-    entries: io.src + '/script.js',
-    debug: true
+    entries: io.src + '/script.jsx',
+    debug: true,
+    extensions: ['.js', '.jsx']
   })
     .transform(babelify.configure({
-      presets: ['@babel/preset-env']
+      presets: ['@babel/preset-env', '@babel/preset-react']
     }))
     .bundle()
-    .pipe(source('script.js'))
+    .pipe(source('bundle.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(terser())
