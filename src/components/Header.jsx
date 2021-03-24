@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Header({ title, subtitle, children }) {
+function Header({children }) {
+
+  let isOnline = true
 
   return (
     <header>
-      <h1>{ title }</h1>
-      <h2>{ subtitle }</h2>
-
+      <p>test</p>
       { children }
     </header>
   )
