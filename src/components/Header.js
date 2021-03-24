@@ -1,4 +1,4 @@
-const Tag = require('../toolkit');
+import Tag from '../toolkit'
 
 function Header(logo, menu){
   let header = Tag.create(
@@ -17,4 +17,4 @@ function Header(logo, menu){
   return header
 }
 
-module.exports = Header;
+export default Header

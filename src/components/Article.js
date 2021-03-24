@@ -1,8 +1,8 @@
-const Tag = require('../toolkit');
+import Tag from '../toolkit'
 
 function Article(title, author, published, content) {
 
-  var article = Tag.create(
+  let article = Tag.create(
     "div", 
     { "class": "Article" },
     [
@@ -18,4 +18,4 @@ function Article(title, author, published, content) {
   return article;
 }
 
-module.exports = Article;
+export default Article

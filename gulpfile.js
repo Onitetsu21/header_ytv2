@@ -10,6 +10,7 @@ const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
 const browserify = require('browserify')
 const babelify = require('babelify')
+const sourcemaps = require('gulp-sourcemaps')
 
 const io = {
   src: './src',
@@ -22,9 +23,11 @@ function clean() {
 
 function css() {
   return src(io.src + '/style.css')
-    .pipe(postcss([
-      cssnano()
-    ]))
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(postcss([
+	cssnano()
+      ]))
+    .pipe(sourcemaps.write())
     .pipe(dest(io.dest))
 }
 
@@ -52,6 +55,9 @@ function js() {
     .bundle()
     .pipe(source('script.js'))
     .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(terser())
+    .pipe(sourcemaps.write())
     .pipe(dest(io.dest))
 }
 

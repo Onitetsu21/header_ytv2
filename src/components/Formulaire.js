@@ -1,4 +1,4 @@
-const Tag = require('../toolkit');
+import Tag from '../toolkit'
 
 function Formulaire(action, method) {
 
@@ -51,4 +51,4 @@ function Formulaire(action, method) {
     return formulaire;
 }
 
-module.exports = Formulaire;
+export default Formulaire

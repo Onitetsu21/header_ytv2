@@ -1,4 +1,4 @@
-const Tag = require('../toolkit');
+import Tag from '../toolkit'
 
 //Component footer
 function Footer(logo, menu, socialNetwork){
@@ -21,4 +21,4 @@ function Footer(logo, menu, socialNetwork){
   return footer
 }
 
-module.exports = Footer;
+export default Footer

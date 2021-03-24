@@ -1,23 +1,23 @@
-const Tag = require('../toolkit');
+import Tag from '../toolkit'
 
 function CategoriesList(articles) {
 
   // Récupérer les données pertinantes
   let categories = new Set();
 
-  for(var a in articles) {
+  for(let a in articles) {
     categories.add(articles[a].category);
   }
 
   // Génerer le tableau de LI
-  var itemList = [];
+  let itemList = [];
 
   categories.forEach(function(elm) {
     itemList.push(Tag.create("li", {}, [elm]));
   });
   
   // Créer le composant HTML
-  var categoriesList = Tag.create("div", {"class": "Categories"}, [
+  let categoriesList = Tag.create("div", {"class": "Categories"}, [
     Tag.create("p", {}, ["Liste des catégories"]),
     Tag.create("ul", {}, itemList)
   ]);
@@ -25,4 +25,4 @@ function CategoriesList(articles) {
   return categoriesList;
 }
 
-module.exports = CategoriesList;
+export default CategoriesList

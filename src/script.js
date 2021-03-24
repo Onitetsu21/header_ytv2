@@ -1,13 +1,13 @@
-const Tag = require('./toolkit')
-const Article = require('./components/Article')
-const Header = require('./components/Header')
-const Footer = require('./components/Footer')
-const Formulaire = require('./components/Formulaire')
-const CategoriesList = require('./components/CategoriesList')
-const Counter = require('./components/Counter')
-const Logo = require('./components/Logo')
-const NavList = require('./components/NavList')
-const SocialList = require('./components/SocialList')
+import Tag from './toolkit'
+import Article from './components/Article'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Formulaire from './components/Formulaire'
+import CategoriesList from './components/CategoriesList'
+import Counter from './components/Counter'
+import Logo from './components/Logo'
+import NavList from './components/NavList'
+import SocialList from './components/SocialList'
 
 // ##########################
 // # Code de l'application
@@ -29,7 +29,7 @@ fetch(new Request("http://188.165.104.163:8080/articles"))
         Tag.append(CategoriesList(articles), Tag.get('main')[0]);
         Tag.append(Counter(articles), Tag.get('main')[0]);
 
-        for (var a in articles) {
+        for (let a in articles) {
             Tag.append(
                 Article(
                     articles[a].title,
