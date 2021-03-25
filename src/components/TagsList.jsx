@@ -1,19 +1,14 @@
 import React from 'react'
 import tagList from '../videos'
 
-
 const tagsArray=tagList.tagsList;
 
-function TagsList(tagsArray) {
+function TagsList(children) {
   return (
     <ul className="tagsList">
-      <Tag/>
+      { tagsArray.map((tags, index)=> <li key={index}>{tags}</li>) }
     </ul>
   )
-}
-
-function Tag(){
-  return tagsArray.map((tags, index)=> <li key={index}>{tags}</li>)
 }
 
 export default TagsList
