@@ -15,7 +15,7 @@ function Thumbnail ({children}) {
           </div>
           <div className="infosVideos">
             <h3>{element.title}</h3>
-            <p>{element.channel}{check}</p>
+            <p>{element.channel} <span className="checkCircle">{check}</span></p>
             <div className="vuesAndPublication">
               <p>{element.views}</p>
               <p>{element.published}</p>

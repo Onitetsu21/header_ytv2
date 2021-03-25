@@ -1,16 +1,16 @@
 import React from 'react'
 
-function PageList(props) {
+function SetList(props) {
   return (
-    <div className="aside">
+    <div>
       <ul>
         {
-          props.menu.map((elm, index)=>(
-            <li key={index} className="row-aside">
-              <a href={elm.link}>
+          props.settings.map((elm, index)=>(
+            <li key={index}>
+              <p onClick={elm.onClick}>
                 <span className="material-icons">{elm.icon}</span>
                 {elm.label}
-              </a>
+              </p>
             </li>
           ))
         }
@@ -19,4 +19,4 @@ function PageList(props) {
   )
 }
 
-export default PageList
+export default SetList
