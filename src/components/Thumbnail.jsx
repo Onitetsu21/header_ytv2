@@ -1,8 +1,10 @@
 import React from 'react'
 import Videosinfo from '../videos'
 
+const check = <span class="material-icons">check_circle</span>
+
 let videosArray = Videosinfo.videosList
-function Thumbnail () {
+function Thumbnail ({children}) {
   return (
     videosArray.map((element, index) => (
       <div className="thumbnail" key={index}>
@@ -13,7 +15,7 @@ function Thumbnail () {
           </div>
           <div className="infosVideos">
             <h3>{element.title}</h3>
-            <p>{element.channel} {/*<span className="material-icons">check_circle</span>*/}</p>
+            <p>{element.channel}{check}</p>
             <div className="vuesAndPublication">
               <p>{element.views}</p>
               <p>{element.published}</p>
