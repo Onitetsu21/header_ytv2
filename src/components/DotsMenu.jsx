@@ -6,11 +6,10 @@ let settings = [
   { label: "Aide", icon: "subscriptions", onClick: () => alert('Aide') },
 ]
 
-
 function DotsMenu() {
   return (
     <div className="dotsMenu">
-      {settings.map(elm => 
+      {settings.map(elm =>
         <span onClick={elm.onClick} >{elm.icon}{elm.label}</span>
       )}
     </div>
