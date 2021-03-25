@@ -2,7 +2,7 @@ import React from 'react'
 import Videosinfo from '../videos'
 
 let videosArray = Videosinfo.videosList
-function Thumbnail ({children}) {
+function Thumbnail () {
   return (
     videosArray.map((element, index) => (
       <div className="thumbnail" key={index}>
