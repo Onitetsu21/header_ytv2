@@ -11,6 +11,7 @@ const buffer = require('vinyl-buffer')
 const browserify = require('browserify')
 const babelify = require('babelify')
 const sourcemaps = require('gulp-sourcemaps')
+const watchify = require('watchify')
 
 const io = {
   src: './src',
@@ -25,7 +26,7 @@ function css() {
   return src(io.src + '/style.css')
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(postcss([
-	cssnano()
+	      cssnano()
       ]))
     .pipe(sourcemaps.write())
     .pipe(dest(io.dest))
@@ -45,11 +46,11 @@ function html() {
 }
 
 function js() {
-  return browserify({
+  return watchify(browserify({
     entries: io.src + '/script.jsx',
     debug: true,
     extensions: ['.js', '.jsx']
-  })
+  }))
     .transform(babelify.configure({
       presets: ['@babel/preset-env', '@babel/preset-react']
     }))
@@ -57,7 +58,7 @@ function js() {
     .pipe(source('bundle.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(terser())
+    .pipe(terser())
     .pipe(sourcemaps.write())
     .pipe(dest(io.dest))
 }
@@ -100,7 +101,8 @@ const build = series(
   parallel(css, html, js, image),
 )
 
-watch([io.src + '/**/*'], series(build, reload))
+watch([io.src + '/**/*.css', io.src + '/**/*.html'], series(build, reload))
+watch([io.src + '/**/*.jsx', io.src + '/**/*.js'], series(js, reload))
 
 exports.default = series(
   build,
