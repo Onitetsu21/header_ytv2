@@ -1,5 +1,135 @@
+/* ###### */
+/* GLOBAL */
+/* ###### */
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* ###### */
+/* HEADER */
+/* ###### */
+header{
+    background: white;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top:0;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    /*max-height: 80px;*/
+    width: 99vw;
+    /* background-color: lightgray; */
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+}
+
+/* ########### */
+/* HEADER LOGO */
+/* ########### */
+
+.logo{
+    width: 100px;
+}
+
+/* ################# */
+/* HEADER SEARCH BAR */
+/* ################# */
+
+.searchButton > img {
+    margin:auto;
+}
+
+.searchButton{
+    height: 38.5px;
+    width: 65px;
+    opacity: 0.5;
+    background: #E9E9E9;
+    border: 1px black solid;
+    display:flex;
+}
+
+.searchButton > img:hover{
+    transition: 0.3s;
+    opacity: 1;
+    background: #E9E9E9;
+}
+.searchBar{
+    display:flex;
+    flex-direction: row;
+}
+
+.searchInput{
+    height:35px;
+    width: 30vw;
+    min-width:300px;
+}
+
+
+/* #################### */
+/* HEADER RIGHT SECTION */
+/* #################### */
+
+.header_rightSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* LOGIN BUTTON */
+
+.buttonLogin{
+    font-family: Roboto;
+    background: transparent;
+    color: #387FDC;
+    border: 1px solid #387FDC;
+    padding: 10px;
+    border-radius: 2px;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttonLogin > img {
+    margin-right: 5px;
+}
+
+/* DOTS MENU */
+
+.dotsButton{
+    height: 100%;
+}
+
+.dotsMenu{
+    /*display: flex;*/
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+    position: relative;
+    border: 1px solid lightgray;
+    justify-content: space-around;
+    margin-bottom: -170px;
+    margin-right: -300px;
+}
+
+.dotsMenu >span:hover{
+    background: lightgray;
+}
+.dotsMenu >span{
+    padding: 10px;
 }
 
 .grid {
@@ -9,10 +139,11 @@ body {
     justify-content: center;
 }
 
+
 .tagsList {
     display: flex;
     justify-content: space-around;
-    list-style-type: none;
+    /*position: fixed;*/
     padding: 10px;
     border-bottom: lightgrey 1px solid;
     border-top: lightgrey 1px solid;
@@ -45,7 +176,7 @@ body {
     padding-top: 10px;
 }
 
-.logo > img {
+.videoLogo > img {
     margin-top: 10px;
     border-radius: 50%;
 }
@@ -68,4 +199,18 @@ body {
     display: flex;
     flex-direction: row;
     margin-top: 0;
+}
+
+.cookies{
+    background-color: rgba(0, 0, 0, 0.815);
+    color: white;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    width: 100%;
+    /* padding: 10px 50px; */
 }
