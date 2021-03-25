@@ -9,14 +9,15 @@ import Main from './components/Main'
 function App() {
   return (
     <Fragment>
-      <Header>
-      </Header>
+      <Header />
       <div>
         <Aside>
+          /*Attention gestion affichage, utilisation de children ? */
+          <footer>
+            <p>&copy;copyright 2021, Random guy, inc.</p>
+          </footer>
         </Aside>
-
-        <Main>
-        </Main>
+        <Main></Main>
       </div>
 
     </Fragment>
