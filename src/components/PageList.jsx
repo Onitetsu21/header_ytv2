@@ -2,7 +2,7 @@ import React from 'react'
 
 function PageList({menu}) {
   return (
-    <div>
+    <div className="aside">
       <ul>
         <li>{menu[0].label}</li>
         <li>{menu[1].label}</li>
