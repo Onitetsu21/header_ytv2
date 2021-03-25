@@ -1,10 +1,14 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
 function Cookies({children}){
+
+  const [accepted, setAccepted] = useState(false)
+
+
   return (
-    <div className="cookies">
+    <div className="cookies" style={{ display: (accepted ? "none" : "flex") }}>
       {children}
-      <button>Accepter</button>
+      <button onClick={() => setAccepted(true)}>Accepter</button>
       <button>JAMAIS</button>
     </div>
   )
