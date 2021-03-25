@@ -3,6 +3,7 @@
 /* ###### */
 body {
     font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
 li {
@@ -20,16 +21,14 @@ header{
     top:0;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
-    /*max-height: 80px;*/
+    height: 55px;
     width: 99vw;
-    /* background-color: lightgray; */
 }
 
 .content {
     display: flex;
     flex-direction: row;
-    margin-top: 80px;
+    margin-top: 110px;
 }
 
 footer{
@@ -139,23 +138,29 @@ footer{
     justify-content: center;
 }
 
-
 .tagsList {
     display: flex;
+    background-color: white;
+    /*width de tagList: calc(100% - width de aside)*/
+    width: calc(100% - 240px);
     justify-content: space-around;
-    /*position: fixed;*/
+    position: fixed;
+    top: 55px;
     padding: 10px;
     border-bottom: lightgrey 1px solid;
     border-top: lightgrey 1px solid;
+    margin: 0;
 }
 
 .tagsList > li {
     background: whitesmoke;
     padding: 10px;
-    border: lightgrey 1px solid;
+    border: 1px solid lightgrey;
     border-radius: 50px;
     min-width: 50px;
+    max-height: 55px;
     text-align: center;
+    font-size: 14Px;
 }
 
 .tagsList > li:active, li:hover {
@@ -172,8 +177,14 @@ footer{
 }
 
 .metaData {
+    color: #606060;
     display: flex;
     padding-top: 10px;
+}
+
+.material-icons{
+    font-size: 14Px;
+    margin-left: 5Px;
 }
 
 .videoLogo > img {
@@ -186,7 +197,7 @@ footer{
 }
 
 .infosVideos > h3 {
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .infosVideos p {
@@ -205,12 +216,15 @@ footer{
     background-color: rgba(0, 0, 0, 0.815);
     color: white;
     z-index: 10;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     left: 0;
     width: 100%;
-    /* padding: 10px 50px; */
+}
+
+.aside{
+    width: 240px;
 }
