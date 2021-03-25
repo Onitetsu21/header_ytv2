@@ -1,25 +1,28 @@
 import React from 'react'
-import {Fragment} from 'react'
+import Videosinfo from '../videos'
 
-
+let videosArray = Videosinfo.videosList
 function Thumbnail ({children}) {
   return (
-    <div className="thumbnail">
-      <img src="https://picsum.photos/360/200" alt="Miniature de la vidéo"/>
-      <div className="metaData">
-        <div className="logo">
-          <img src="https://picsum.photos/50" alt="Logo de la chaîne"/>
-        </div>
-        <div className="infosVideos">
-          <h3>Titre de la vidéo</h3>
-          <p>Auteur de la vidéo</p>
-          <div className="vuesAndPublication">
-            <p>Nombre de vues</p>
-            <p>date publication</p>
+    videosArray.map((element, index) => (
+      <div className="thumbnail" key={index}>
+        <img src={element.thumbnail} alt="Miniature de la vidéo" />
+        <div className="metaData">
+          <div className="logo">
+            <img src={element.channelIcon} alt="Logo de la chaîne" />
+          </div>
+          <div className="infosVideos">
+            <h3>{element.title}</h3>
+            <p>{element.channel}</p>
+            <div className="vuesAndPublication">
+              <p>{element.views}</p>
+              <p>{element.published}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      )
+    )
   )
 }
 
