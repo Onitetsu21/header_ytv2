@@ -64,15 +64,15 @@ function js() {
 }
 
 function image() {
-  return src(io.src + '/images/*.jpg')
+  return src(io.src + '/assets/svg/*')
     .pipe(imagemin({
       interlaced: true,
       progressive: true,
       optimizationLevel: 5,
       svgoPlugins: [
-	  {
-	      removeViewBox: true
-	  }
+        {
+          removeViewBox: true
+        }
       ]
     }))
     .pipe(dest(io.dest + '/images'))
