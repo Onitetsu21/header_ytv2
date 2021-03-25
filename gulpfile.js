@@ -46,11 +46,11 @@ function html() {
 }
 
 function js() {
-  return watchify(browserify({
+  return browserify({
     entries: io.src + '/script.jsx',
     debug: true,
     extensions: ['.js', '.jsx']
-  }))
+  })
     .transform(babelify.configure({
       presets: ['@babel/preset-env', '@babel/preset-react']
     }))
