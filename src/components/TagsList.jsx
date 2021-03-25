@@ -13,7 +13,7 @@ function TagsList(tagsArray) {
 }
 
 function Tag(){
-  return tagsArray.map((tags)=> <li>{tags}</li>) //ajouter key sinon react pas content
+  return tagsArray.map((tags, index)=> <li key={index}>{tags}</li>)
 }
 
 export default TagsList
